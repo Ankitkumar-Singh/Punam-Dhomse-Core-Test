@@ -1,0 +1,96 @@
+﻿@model ProductManagement.Models.Product
+
+@using ProductManagement.Models
+
+@{
+    ViewData["Title"] = "Save";
+}
+
+<div class="container my-5 product">
+    <div class="card card-body productBox">
+        <h2 class="text-danger">Product</h2>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <form asp-action="Save" asp-controller="Product" method="post" id="myForm">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Name" class="control-label"><b>Name</b></label>
+                                <input asp-for="Name" class="form-control" maxlength="50" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Cost" class="control-label"><b>Price</b></label>
+                                <input asp-for="Cost" class="form-control" />
+                                <span asp-validation-for="Cost" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Description" class="control-label"><b>Description</b></label>
+                                <textarea asp-for="Description" class="form-control" maxlength="200"></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="CategoryId" class="control-label"><b>Category</b></label>
+                                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryList">
+                                    <option selected="selected" value="" disabled>Please select</option>
+                                </select>
+                                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Colour" class="control-label"><b>Colour</b></label>
+                                <select asp-for="Colour" asp-items="Html.GetEnumSelectList<Colour>()" class="form-control">
+                                    <option selected="selected" value="" disabled>Please select</option>
+                                </select>
+                                <span asp-validation-for="Colour" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="row pl-4">
+                                    <label asp-for="AvailableStatus" class="control-label"><b>Available Status </b></label>
+                                </div>
+                                <div class="row pl-4">
+                                    <label><input asp-for="AvailableStatus" value="EMI" type="radio" class="mr-2 " /><b class="mr-2 pr-2">EMI</b></label>
+                                    <label><input asp-for="AvailableStatus" value="non-EMI" type="radio" class="mr-2 " /><b class="mr-2 pr-2">Non-EMI</b></label>
+                                    <span asp-validation-for="AvailableStatus" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <b class="mr-2">@Html.DisplayNameFor(model => model.IsAvailable)</b>
+                                <input asp-for="IsAvailable" />
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-success float-right ml-2" />
+                        <a asp-controller="Product" asp-action="Index" class="btn btn-info float-right">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

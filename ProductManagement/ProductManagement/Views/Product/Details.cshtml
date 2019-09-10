@@ -1,0 +1,54 @@
+﻿@model ProductManagement.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container mt-5 ">
+    <div class="card card-body productBox">
+        <h4 class="text-danger">Product Details</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2"> Name</dt>
+            <dt class="col-sm-1">:</dt>
+            <dd class="col-sm-9"> @Model.Name</dd>
+
+            <dt class="col-sm-2"> Price </dt>
+            <dt class="col-sm-1"> :</dt>
+            <dd class="col-sm-9"> @Model.Cost&#8377 </dd>
+
+            <dt class="col-sm-2"> Description</dt>
+            <dt class="col-sm-1">:</dt>
+            <dd class="col-sm-9"> @Model.Description </dd>
+
+            <dt class="col-sm-2">Available</dt>
+            <dt class="col-sm-1">:</dt>
+            <dd class="col-sm-9">
+                @if (Model.IsAvailable == true)
+                {
+                    <text>Yes</text>
+                }
+                else
+                {
+                    <text>No</text>
+                }
+            </dd>
+
+            <dt class="col-sm-2">Colour</dt>
+            <dt class="col-sm-1">:</dt>
+            <dd class="col-sm-9"> @Model.Colour</dd>
+
+            <dt class="col-sm-2">Available Status</dt>
+            <dt class="col-sm-1"> :</dt>
+            <dd class="col-sm-9"> @Model.AvailableStatus </dd>
+
+            <dt class="col-sm-2">Category </dt>
+            <dt class="col-sm-1"> :</dt>
+            <dd class="col-sm-9"> @Model.Category.Name</dd>
+        </dl>
+        <div>
+            <a asp-controller="Product" asp-action="Index" class="btn btn-info">Cancel</a>
+            <a asp-controller="Product" asp-action="Save" asp-route-id="@Model.Id" class="btn btn-success">Edit</a>
+        </div>
+    </div>
+</div>
