@@ -69,7 +69,7 @@ namespace ProductManagement.Controllers
         [Route("Save")]
         //Add or edit the products according to id.
         //<param name="id">The identifier.</param>
-        public IActionResult Save(int? id)
+        public IActionResult Save(int id)
         {
             var product = _productRepository.GetSingleProduct(id);
 
