@@ -34,7 +34,7 @@ namespace ProductManagement.Controllers
         [HttpGet]
         //Saves the specified category and render the view according to id.
         // <param name="id">The identifier.</param>
-        public IActionResult Save(int? id)
+        public IActionResult Save(int id)
         {
             var category = _categoryRepository.GetCategory(id);
 
