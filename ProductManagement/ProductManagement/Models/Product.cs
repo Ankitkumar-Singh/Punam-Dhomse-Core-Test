@@ -25,7 +25,7 @@ namespace ProductManagement.Models
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Price can not be empty.")]
-        [RegularExpression("^([1-9]\\d{1,6})+(,\\d{1,6})*(\\d.\\d{1,2})?$", ErrorMessage = "Price must be valid (Minimum 2 digit Maximum 12 digit.)")]
+        [RegularExpression("^([1-9]\\d{1,6})+(,\\d{1,6})*(\\d.\\d{1,2})?$", ErrorMessage = "Price must be valid (Minimum 2 digit Maximum 20 digit.)")]
         public double Cost { get; set; }
 
         [Required(ErrorMessage = "Description can not be empty.")]
